@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# 🎬 HypeLens UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React frontend that consumes a NestJS API to display a video gallery with a special highlight for the top-hyped video.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **hype-lens-ui** — Videos displayed in a responsive grid.
+- **👑 La Joya de la Corona** — The video with the highest Hype score gets a special treatment: larger card, glowing border, and a crown badge.
+- **Loading State** — Animated pulse skeleton shown while fetching data from the API.
+- **Error Handling** — User-friendly error message displayed if the request fails.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Layer     | Technology     |
+|-----------|----------------|
+| Frontend  | React.js       |
+| API       | NestJS         |
+| Styling   | CSS / TailwindCSS |
+| HTTP      | Fetch / Axios  |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📦 Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clone the repository
+git clone https://github.com/Stiven-Chacon/hype-lens-ui
+cd hype-lens-ui
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Configuration
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env` file in the root of the project:
+
+```env
+VITE_API_URL=http://localhost:3000/api
 ```
+
+> Make sure your NestJS backend is running on the configured port.
+
+---
+
+## 🔗 Repositorios relacionados
+
+| Repo | Descripción |
+|---|---|
+| [`hype-lens-api`](https://github.com/Stiven-Chacon/hype-lens-api) | Este repositorio — Backend NestJS |
+| [`hype-lens-ui`](https://github.com/Stiven-Chacon/hype-lens-ui) | Frontend React + Tailwind |
