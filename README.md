@@ -13,17 +13,6 @@ A React frontend that consumes a NestJS API to display a video gallery with a sp
 
 ---
 
-## 🛠️ Tech Stack
-
-| Layer     | Technology     |
-|-----------|----------------|
-| Frontend  | React.js       |
-| API       | NestJS         |
-| Styling   | CSS / TailwindCSS |
-| HTTP      | Fetch / Axios  |
-
----
-
 ## 📦 Installation
 
 ```bash
