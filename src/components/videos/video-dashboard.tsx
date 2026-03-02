@@ -1,5 +1,6 @@
 import { useVideos } from "../../hooks/use-videos"
 import { DashboardHeader } from "./dashboard-header"
+import { ErrorState } from "./error-state"
 import { VideoGrid } from "./video-grid"
 import { VideoGridSkeleton } from "./video-grid-skeleton"
 
@@ -15,10 +16,19 @@ export function VideoDashboard() {
 }
 
 function VideoDashboardContent() {
-  const { videos, crownVideo, isLoading } = useVideos()
+  const { videos, crownVideo, isLoading, isError, error, mutate } = useVideos()
 
   if (isLoading) {
     return <VideoGridSkeleton />
+  }
+
+  if (isError) {
+    return (
+      <ErrorState
+        message={error?.message}
+        onRetry={() => mutate()}
+      />
+    )
   }
 
   if (videos.length === 0) {
