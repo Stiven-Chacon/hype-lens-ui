@@ -1,6 +1,7 @@
 import { useVideos } from "../../hooks/use-videos"
 import { DashboardHeader } from "./dashboard-header"
 import { VideoGrid } from "./video-grid"
+import { VideoGridSkeleton } from "./video-grid-skeleton"
 
 export function VideoDashboard() {
   return (
@@ -14,9 +15,12 @@ export function VideoDashboard() {
 }
 
 function VideoDashboardContent() {
-  const { videos, crownVideo} = useVideos()
+  const { videos, crownVideo, isLoading } = useVideos()
 
- 
+  if (isLoading) {
+    return <VideoGridSkeleton />
+  }
+
   if (videos.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-2 py-16">
